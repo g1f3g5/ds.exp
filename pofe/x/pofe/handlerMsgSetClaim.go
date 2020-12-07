@@ -4,15 +4,15 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/user/pofe/x/pofe/types"
-	"github.com/user/pofe/x/pofe/keeper"
+	"github.com/user/pofex/x/pofe/keeper"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 func handleMsgSetClaim(ctx sdk.Context, k keeper.Keeper, msg types.MsgSetClaim) (*sdk.Result, error) {
 	var claim = types.Claim{
 		Creator: msg.Creator,
 		ID:      msg.ID,
-    	Proof: msg.Proof,
+		Proof:   msg.Proof,
 	}
 	if !msg.Creator.Equals(k.GetClaimOwner(ctx, msg.ID)) { // Checks if the the msg sender is the same as the current owner
 		return nil, sdkerrors.Wrap(sdkerrors.ErrUnauthorized, "Incorrect Owner") // If not, throw an error

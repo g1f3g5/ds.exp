@@ -13,7 +13,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	// sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/user/pofe/x/pofe/types"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module
@@ -29,7 +29,7 @@ func GetQueryCmd(queryRoute string, cdc *codec.Codec) *cobra.Command {
 
 	pofeQueryCmd.AddCommand(
 		flags.GetCommands(
-      // this line is used by starport scaffolding # 1
+			// this line is used by starport scaffolding # 1
 			GetCmdListClaim(queryRoute, cdc),
 			GetCmdGetClaim(queryRoute, cdc),
 		)...,

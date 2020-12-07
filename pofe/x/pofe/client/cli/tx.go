@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/user/pofe/x/pofe/types"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 // GetTxCmd returns the transaction commands for this module
@@ -22,7 +22,7 @@ func GetTxCmd(cdc *codec.Codec) *cobra.Command {
 	}
 
 	pofeTxCmd.AddCommand(flags.PostCommands(
-    // this line is used by starport scaffolding # 1
+		// this line is used by starport scaffolding # 1
 		GetCmdCreateClaim(cdc),
 		GetCmdSetClaim(cdc),
 		GetCmdDeleteClaim(cdc),

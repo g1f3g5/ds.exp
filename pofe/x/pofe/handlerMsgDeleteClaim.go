@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/user/pofe/x/pofe/types"
-	"github.com/user/pofe/x/pofe/keeper"
+	"github.com/user/pofex/x/pofe/keeper"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 // Handle a message to delete name

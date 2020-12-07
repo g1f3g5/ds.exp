@@ -13,7 +13,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth"
 	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
-	"github.com/user/pofe/x/pofe/types"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 func GetCmdCreateClaim(cdc *codec.Codec) *cobra.Command {
@@ -28,7 +28,7 @@ func GetCmdCreateClaim(cdc *codec.Codec) *cobra.Command {
 			argsProof := hex.EncodeToString(hasher.Sum(nil))
 
 			// argsProof := string(args[0] )
-			
+
 			cliCtx := context.NewCLIContext().WithCodec(cdc)
 			inBuf := bufio.NewReader(cmd.InOrStdin())
 			txBldr := auth.NewTxBuilderFromCLI(inBuf).WithTxEncoder(utils.GetTxEncoder(cdc))
@@ -50,7 +50,7 @@ func GetCmdSetClaim(cdc *codec.Codec) *cobra.Command {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			id := args[0]
 			argsProof := string(args[1])
-			
+
 			cliCtx := context.NewCLIContext().WithCodec(cdc)
 			inBuf := bufio.NewReader(cmd.InOrStdin())
 			txBldr := auth.NewTxBuilderFromCLI(inBuf).WithTxEncoder(utils.GetTxEncoder(cdc))

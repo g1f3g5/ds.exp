@@ -22,18 +22,18 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/params"
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/cosmos/cosmos-sdk/x/supply"
-	"github.com/user/pofe/x/pofe"
-	pofekeeper "github.com/user/pofe/x/pofe/keeper"
-	pofetypes "github.com/user/pofe/x/pofe/types"
-  // this line is used by starport scaffolding # 1
+	"github.com/user/pofex/x/pofe"
+	pofekeeper "github.com/user/pofex/x/pofe/keeper"
+	pofetypes "github.com/user/pofex/x/pofe/types"
+	// this line is used by starport scaffolding # 1
 )
 
 const appName = "pofe"
 
 var (
-	DefaultCLIHome = os.ExpandEnv("$HOME/.pofecli")
+	DefaultCLIHome  = os.ExpandEnv("$HOME/.pofecli")
 	DefaultNodeHome = os.ExpandEnv("$HOME/.pofed")
-	ModuleBasics = module.NewBasicManager(
+	ModuleBasics    = module.NewBasicManager(
 		genutil.AppModuleBasic{},
 		auth.AppModuleBasic{},
 		bank.AppModuleBasic{},
@@ -41,11 +41,11 @@ var (
 		params.AppModuleBasic{},
 		supply.AppModuleBasic{},
 		pofe.AppModuleBasic{},
-    // this line is used by starport scaffolding # 2
+		// this line is used by starport scaffolding # 2
 	)
 
 	maccPerms = map[string][]string{
-		auth.FeeCollectorName:     nil,
+		auth.FeeCollectorName: nil,
 		// this line is used by starport scaffolding # 2.1
 		staking.BondedPoolName:    {supply.Burner, supply.Staking},
 		staking.NotBondedPoolName: {supply.Burner, supply.Staking},
@@ -73,13 +73,13 @@ type NewApp struct {
 
 	subspaces map[string]params.Subspace
 
-	accountKeeper  auth.AccountKeeper
-	bankKeeper     bank.Keeper
-	stakingKeeper  staking.Keeper
-	supplyKeeper   supply.Keeper
-	paramsKeeper   params.Keeper
-	pofeKeeper pofekeeper.Keeper
-  // this line is used by starport scaffolding # 3
+	accountKeeper auth.AccountKeeper
+	bankKeeper    bank.Keeper
+	stakingKeeper staking.Keeper
+	supplyKeeper  supply.Keeper
+	paramsKeeper  params.Keeper
+	pofeKeeper    pofekeeper.Keeper
+	// this line is used by starport scaffolding # 3
 	mm *module.Manager
 
 	sm *module.SimulationManager
@@ -98,14 +98,14 @@ func NewInitApp(
 	bApp.SetAppVersion(version.Version)
 
 	keys := sdk.NewKVStoreKeys(
-    bam.MainStoreKey,
-    auth.StoreKey,
-    staking.StoreKey,
+		bam.MainStoreKey,
+		auth.StoreKey,
+		staking.StoreKey,
 		supply.StoreKey,
-    params.StoreKey,
-    pofetypes.StoreKey,
-    // this line is used by starport scaffolding # 5
-  )
+		params.StoreKey,
+		pofetypes.StoreKey,
+		// this line is used by starport scaffolding # 5
+	)
 
 	tKeys := sdk.NewTransientStoreKeys(staking.TStoreKey, params.TStoreKey)
 
@@ -156,7 +156,7 @@ func NewInitApp(
 
 	app.stakingKeeper = *stakingKeeper.SetHooks(
 		staking.NewMultiStakingHooks(
-			// this line is used by starport scaffolding # 5.3
+		// this line is used by starport scaffolding # 5.3
 		),
 	)
 
@@ -166,7 +166,7 @@ func NewInitApp(
 		keys[pofetypes.StoreKey],
 	)
 
-  // this line is used by starport scaffolding # 4
+	// this line is used by starport scaffolding # 4
 
 	app.mm = module.NewManager(
 		genutil.NewAppModule(app.accountKeeper, app.stakingKeeper, app.BaseApp.DeliverTx),
@@ -175,7 +175,7 @@ func NewInitApp(
 		supply.NewAppModule(app.supplyKeeper, app.accountKeeper),
 		pofe.NewAppModule(app.pofeKeeper, app.bankKeeper),
 		staking.NewAppModule(app.stakingKeeper, app.accountKeeper, app.supplyKeeper),
-    // this line is used by starport scaffolding # 6
+		// this line is used by starport scaffolding # 6
 	)
 
 	app.mm.SetOrderEndBlockers(
@@ -191,7 +191,7 @@ func NewInitApp(
 		pofetypes.ModuleName,
 		supply.ModuleName,
 		genutil.ModuleName,
-    // this line is used by starport scaffolding # 7
+		// this line is used by starport scaffolding # 7
 	)
 
 	app.mm.RegisterRoutes(app.Router(), app.QueryRouter())

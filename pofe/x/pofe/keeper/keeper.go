@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/bank"
-	"github.com/user/pofe/x/pofe/types"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 // Keeper of the pofe store

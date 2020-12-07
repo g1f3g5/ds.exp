@@ -3,7 +3,7 @@ package pofe
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/user/pofe/x/pofe/keeper"
+	"github.com/user/pofex/x/pofe/keeper"
 	// abci "github.com/tendermint/tendermint/abci/types"
 )
 

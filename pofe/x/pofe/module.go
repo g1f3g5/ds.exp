@@ -13,10 +13,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/bank"
-	"github.com/user/pofe/x/pofe/client/cli"
-	"github.com/user/pofe/x/pofe/client/rest"
-	"github.com/user/pofe/x/pofe/keeper"
-	"github.com/user/pofe/x/pofe/types"
+	"github.com/user/pofex/x/pofe/client/cli"
+	"github.com/user/pofex/x/pofe/client/rest"
+	"github.com/user/pofex/x/pofe/keeper"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 // Type check to ensure the interface is properly implemented

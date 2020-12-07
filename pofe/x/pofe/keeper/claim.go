@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/user/pofe/x/pofe/types"
-    "github.com/cosmos/cosmos-sdk/codec"
+	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 // CreateClaim creates a claim
@@ -83,7 +83,6 @@ func (k Keeper) GetClaimOwner(ctx sdk.Context, key string) sdk.AccAddress {
 	}
 	return claim.Creator
 }
-
 
 // Check if the key exists in the store
 func (k Keeper) ClaimExists(ctx sdk.Context, key string) bool {

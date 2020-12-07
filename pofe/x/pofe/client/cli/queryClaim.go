@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/context"
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/spf13/cobra"
-    "github.com/user/pofe/x/pofe/types"
+	"github.com/user/pofex/x/pofe/types"
 )
 
 func GetCmdListClaim(queryRoute string, cdc *codec.Codec) *cobra.Command {
