@@ -13,3 +13,10 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# built files
+pofe/pofecli
+pofe/pofed
+
+# os specific files
+.DS_Store
