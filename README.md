@@ -1,3 +1,5 @@
+This is finished Cosmos SDK tutorial with custom building scripts. [Proof of File Existance tutorial](https://tutorials.cosmos.network/proof-of-file-existence/tutorial/01-intro.html)
+
 # Installation guide
 
 brew install golang
